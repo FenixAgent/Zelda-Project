@@ -1,5 +1,5 @@
 
-///MUSIC FROM YT///
+///MUSIC FROM YT////
 
 /**
  * Stop an iframe or HTML5 <video> from playing

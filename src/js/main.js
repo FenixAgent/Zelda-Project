@@ -230,23 +230,23 @@ const formTitle = document.querySelector('.form-title')
 const getUserData = JSON.parse(localStorage.getItem("userData"));
 console.log(getUserData, "----", getUserData);
 const nameInput = document.querySelector(".form-input-name");
-  const ageInput = document.querySelector(".form-input-age");
-  const colorInput = document.querySelector(".form-input-color");
-  const fullHearts = 3;
-  const firstRuby = 10;
+const ageInput = document.querySelector(".form-input-age");
+const colorInput = document.querySelector(".form-input-color");
+const fullHearts = 3;
+const firstRuby = 10;
 
 function checkUserData() {
-  
-    
+
+
   console.log("------>>->>LOOK HERE", getUserData);
   if (getUserData === null) {
 
     // body.style = `height:${newForm};`
     console.log("You need to sign up!");
-    formTitle.innerHTML = "Sign Up!" 
+    formTitle.innerHTML = "Sign Up!"
     newUserForm();
     colorSet = colorInput;
-    
+
   } else {
 
     var scanData = getUserData.length - 1;
@@ -257,10 +257,10 @@ function checkUserData() {
     var rubies = getUserData[scanData].rubies;
 
     console.log("Welcome back!!");
-            formTitle.innerHTML = `Hey, ${name}!`
-            colorSet = color;
-            
-    // returnUser()
+    formTitle.innerHTML = `Hey, ${name}!`
+    colorSet = color;
+
+    /// returnUser()
     newUserForm();
 
     var userData = { name, age, color, hearts, rubies };
@@ -271,7 +271,7 @@ function checkUserData() {
 const currentUserData = checkUserData();
 
 function newUserForm() {
- 
+
   formButton.addEventListener("click", () => {
     const newUser = {
       name: nameInput.value,

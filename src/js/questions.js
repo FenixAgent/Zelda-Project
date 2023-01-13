@@ -103,7 +103,7 @@ export function runQuestion() {
     }
   }
 
-  ///submit answer
+  ////submit answer
 
   const submitAnswer = document.querySelector(".submit-answer");
 
