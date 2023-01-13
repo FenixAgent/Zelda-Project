@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ZELDA YO</title>
+    <link rel="stylesheet" href="/src/style/game-style.css" />
+    <script src="/src/js/zelda-game.js" defer></script>
+  </head>
+
+  <header class="header">
+    <!-- <img src="src/logo.png" alt="THE LOGO" class="logo" /> -->
+    <ul class="menu-wrapper">
+      <a href="/index.html"
+        ><img src="/src/images/logo.png" alt="home-button" class="home-button"
+      /></a>
+      <li class="start">start</li>
+      <li class="swing">swing</li>
+      <li class="down">down</li>
+    </ul>
+  </header>
+  <hr />
+
+  <audio
+    id="zelda-music"
+    src="https://zeldauniverse.s3.amazonaws.com/soundtracks/alinktothepastost/title.mp3"
+  ></audio>
+  <audio
+    id="zelda-intro"
+    src="https://zeldauniverse.s3.amazonaws.com/soundtracks/alinktothepastost/select_screen.mp3"
+  ></audio>
+  <audio
+    id="sword-slash"
+    src="http://noproblo.dayjo.org/ZeldaSounds/LA/LA_Sword_Slash1.wav"
+  ></audio>
+
+  <body>
+    <div class="all">
+      <div class="holdlayout" style="opacity: 1">
+        <img class="layout" src="/src/images/layout-sprite.png" />
+      </div>
+
+      <div class="holdlink">
+        <img class="link stand-down" src="/src/images/link-sprite.png" />
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,287 @@
+
+///MUSIC FROM YT///
+
+/**
+ * Stop an iframe or HTML5 <video> from playing
+ * @param  {Element} element The element that contains the video
+ */
+// var stopVideo = function ( element ) {
+// 	var iframe = element.querySelector( '.song-of-storms');
+// 	if ( iframe ) {
+// 		var iframeSrc = iframe.src;
+// 		iframe.src = iframeSrc;
+// 	}
+// };
+
+// var tag = document.createElement('script');
+
+// tag.src = "https://www.youtube.com/iframe_api";
+// var firstScriptTag = document.getElementsByTagName('script')[0];
+// firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+// let player;
+// let playerStatus;
+
+// function onYouTubeIframeAPIReady() {
+//     player = new YT.Player('player', { events: {
+//       onReady: onPlayerReady
+//     }});
+// }
+
+// var isPlaying = false;
+
+// function onPlayerReady() {
+//   if(isPlaying === false){
+//     console.log('says its false')
+//     player.playVideo();
+//   $(btnplay).on('click', function(){
+//     player.playVideo();
+//     playStatus = true
+//     isPlaying = true;
+//   })
+
+//   } else{
+//         console.log('says its true')
+//         player.stopVideo();
+//         isPlaying = false;
+//   }
+
+// }
+
+///MUSIC FROM YT/// end
+
+
+
+
+////////index.html////////
+
+/////////////////////
+/////////////////////
+/////////////////////
+/////////////////////
+/////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// const canvas = document.querySelector("#canvas");
+// const ctx = canvas.getContext("2d");
+
+// canvas.height = window.innerHeight;
+// canvas.width = window.innerWidth;
+
+// var colorSet = "#026012";
+
+// function triangles() {
+//     var theColors = ["#282829", colorSet, "#706d26", "#white"];
+//     var randomColor = parseInt(Math.random() * (theColors.length - 1));
+//     var lineColor = theColors[randomColor];
+
+//     for (var i = 0; i < 5; i++) {
+//         var moveO = Math.random() * window.innerWidth;
+//         var moveT = Math.random() * window.height;
+//         var moveTh = Math.random() * canvas.width;
+//         var moveF = Math.random() * canvas.height;
+
+//         ctx.beginPath();
+//         ctx.strokeStyle = lineColor;
+//         ctx.moveTo(moveO, moveF);
+//         ctx.lineTo(moveT, moveTh);
+//         ctx.lineTo(moveTh, moveTh);
+//         ctx.lineTo(moveF, moveO);
+//         ctx.stroke();
+//         lineColor += 1;
+//     }
+//     var meow = window.requestAnimationFrame(triangles);
+
+//     setTimeout(() => {
+//         window.cancelAnimationFrame(meow);
+//     }, 5000);
+// }
+
+// triangles();
+
+
+
+// canvas.addEventListener("click", () => {
+
+//     ctx.clearRect(0, 0, innerWidth + 1000, innerHeight + 1000);
+
+//     let meow = window.requestAnimationFrame(triangles);
+
+// });
+
+// function colorSelector() {
+//     const colorSelector = document.querySelector(".magic");
+
+//     colorSelector.addEventListener("input", (e) => {
+//         colorSet = e.target.value;
+//         console.log(colorSet);
+//     });
+// }
+
+// colorSelector();
+
+// /////// MUSIC ////////
+
+// const zeldaTheme = document.querySelector("#zelda-music");
+// const zeldaRescue = document.querySelector("#zelda-rescue");
+// const zeldaLook = document.querySelector("#zelda-look");
+// const canvasTune = document.querySelector("#canvas-tune");
+// const introTune = document.querySelector("#intro-tune");
+
+
+// function playIntro() {
+//     introTune.currentTime = 20;
+//     introTune.play();
+//     zeldaLook.pause();
+//     zeldaLook.currentTime = 0;
+//     zeldaRescue.pause();
+//     zeldaRescue.currentTime = 0;
+//     zeldaTheme.pause();
+//     zeldaTheme.currentTime = 0;
+//     canvasTune.pause();
+//     canvasTune.currentTime = 0;
+// }
+
+// function playTune() {
+//     zeldaTheme.play();
+//     introTune.pause();
+//     introTune.currentTime = 20;
+//     zeldaRescue.pause();
+//     zeldaRescue.currentTime = 0;
+//     zeldaLook.pause();
+//     zeldaLook.currentTime = 0;
+// }
+
+// function playAboutTune() {
+//     zeldaRescue.play();
+//     introTune.pause();
+//     introTune.currentTime = 20;
+//     zeldaTheme.pause();
+//     zeldaTheme.currentTime = 0;
+//     zeldaLook.pause();
+//     zeldaLook.currentTime = 0;
+//     canvasTune.pause();
+//     canvasTune.currentTime = 0;
+// }
+
+// function playLookTune() {
+//     zeldaLook.play();
+//     introTune.pause();
+//     introTune.currentTime = 20;
+//     zeldaRescue.pause();
+//     zeldaRescue.currentTime = 0;
+//     zeldaTheme.pause();
+//     zeldaTheme.currentTime = 0;
+//     canvasTune.pause();
+//     canvasTune.currentTime = 0;
+// }
+
+// function playCanvasTune() {
+//     canvasTune.play();
+//     introTune.pause();
+//     introTune.currentTime = 20;
+//     zeldaLook.pause();
+//     zeldaLook.currentTime = 0;
+//     zeldaRescue.pause();
+//     zeldaRescue.currentTime = 0;
+//     zeldaTheme.pause();
+//     zeldaTheme.currentTime = 0;
+// }
+
+// function pauseAllMusic() {
+//     introTune.pause();
+//     introTune.currentTime = 20;
+//     zeldaLook.pause();
+//     zeldaLook.currentTime = 0;
+//     zeldaRescue.pause();
+//     zeldaRescue.currentTime = 0;
+//     zeldaTheme.pause();
+//     zeldaTheme.currentTime = 0;
+
+//     canvasTune.pause();
+//     canvasTune.currentTime = 0;
+// }
+// ////////MUSIC////////
+
+
+// ///FORM////
+
+// const formButton = document.querySelector(".form-button");
+// const cover = document.querySelector(".cover");
+// const triforce = document.querySelector(".triforce");
+// const zeldaLogo = document.querySelector(".meow");
+// const titleLogo = document.querySelector(".title");
+
+// formButton.addEventListener("click", () => {
+//     cover.style = "animation: closeMain 2s ease-out forwards; ";
+
+//     setTimeout(() => {
+//         cover.style = "display:none;"
+
+//     }, 1950)
+//     triforce.style = "animation: fadeOutTriforce 7s linear forwards;";
+//     zeldaLogo.style = "animation: fadeInTriforce 7s ease-in forwards;";
+//     titleLogo.style =
+//         "animation: fadeInTitle 4s ease-in forwards; animation-delay: 3s";
+//     playIntro();
+// });
+
+// const menuButton = document.querySelector(".menu-button");
+// const menu = document.querySelector(".menu");
+// const lineOne = document.querySelector(".line-one");
+// const lineTwo = document.querySelector(".line-two");
+// const lineThree = document.querySelector(".line-three");
+
+// var menuStatus = true;
+
+// menuButton.addEventListener("click", () => {
+//     if (menuStatus !== false) {
+//         // console.log("false");
+//         lineOne.classList = "line-one-active";
+//         lineTwo.classList = "line-two-active";
+//         lineThree.classList = "line-three-active";
+//         menu.style = "opacity: 1; display: flex; z-index: 6";
+
+//         menuStatus = false;
+//         console.log(lineOne.classList);
+//     } else {
+//         console.log("true");
+//         lineOne.classList = "line-one";
+//         lineTwo.classList = "line-two";
+//         lineThree.classList = "line-three";
+//         menu.style = "opacity: 0; display: none";
+//         menuStatus = true;
+//     }
+// });
+
+// const aboutButton = document.querySelector(".about");
+// const mainSection = document.querySelector(".section");
+
+// aboutButton.addEventListener("click", () => {
+//     console.log("ABOUT CLICKED");
+//     lineOne.classList = "line-one";
+//     lineTwo.classList = "line-two";
+//     lineThree.classList = "line-three";
+//     menu.style = "opacity: 0;";
+//     menuStatus = true;
+//     ctx.background = "red";
+//     playLookTune();
+// });
+
+// const newsButton = document.querySelector(".more");
+
+// newsButton.addEventListener("click", () => {
+//     console.log("NEWS - CLICKED");
+//     menu.style = "opacity: 0;";
+//     lineOne.classList = "line-one";
+//     lineTwo.classList = "line-two";
+//     lineThree.classList = "line-three";
+//     menu.style = "opacity: 0;";
+//     menuStatus = true;
+//     playCanvasTune();
+// });
