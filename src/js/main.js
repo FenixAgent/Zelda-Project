@@ -1,6 +1,28 @@
 import { runQuestion } from '/src/js/questions.js'
+import { slideShowRun } from '/src/js/slideShow.js'
 
 runQuestion()
+slideShowRun()
+
+const clearButton = document.querySelector('.clear-button')
+
+clearButton.addEventListener("click", () => {
+  localStorage.clear()
+  alert('local storage cleared')
+})
+const loader = document.querySelector('.loader-wrapper')
+const cover = document.querySelector(".cover");
+
+setTimeout(() => {
+  loader.style.display = "none";
+  cover.style.display = "flex"
+  console.log('ready')
+}, 4000)
+// window.addEventListener('DOMContentLoaded', ()=>{
+//   loader.style.display = "none";
+//   cover.style.display = "flex"
+//   console.log('ready')
+// })
 
 const formButton = document.querySelector(".form-button");
 const canvas = document.querySelector("#canvas");
@@ -38,7 +60,7 @@ function triangles() {
   }, 5000);
 }
 
-triangles();
+
 
 canvas.addEventListener("click", () => {
   ///PLAY ON CANVAS CLICK///
@@ -144,15 +166,22 @@ function pauseAllMusic() {
   canvasTune.pause();
   canvasTune.currentTime = 0;
 }
+////////MUSIC////////
+
+// bodySection.addEventListener("click", pauseAllMusic);
+
 
 ///FORM////
 
-const cover = document.querySelector(".cover");
+
 const triforce = document.querySelector(".triforce");
 const zeldaLogo = document.querySelector(".meow");
 const titleLogo = document.querySelector(".title");
+const mainHome = document.querySelector(".main");
 
 formButton.addEventListener("click", () => {
+  triangles()
+  mainHome.style = "display: inline";
   cover.style = "animation: closeMain 2s ease-out forwards; ";
 
   setTimeout(() => {
@@ -179,7 +208,7 @@ menuButton.addEventListener("click", () => {
     lineOne.classList = "line-one-active";
     lineTwo.classList = "line-two-active";
     lineThree.classList = "line-three-active";
-    menu.style = "opacity: 1; display: flex; z-index: 6";
+    menu.style = `opacity: 1; display: flex; z-index: 6; background:${colorSet}`;
 
     menuStatus = false;
     console.log(lineOne.classList);
@@ -221,14 +250,14 @@ newsButton.addEventListener("click", () => {
 });
 
 ///////////////////////////////////////////////////////////////////////
-const body = document.querySelector('body')
-
+const body = document.querySelector("body");
 
 ///////////////////////////FORM////////////////////////////////////////
-const formTitle = document.querySelector('.form-title')
+const formTitle = document.querySelector(".form-title");
 
 const getUserData = JSON.parse(localStorage.getItem("userData"));
 console.log(getUserData, "----", getUserData);
+
 const nameInput = document.querySelector(".form-input-name");
 const ageInput = document.querySelector(".form-input-age");
 const colorInput = document.querySelector(".form-input-color");
@@ -236,19 +265,14 @@ const fullHearts = 3;
 const firstRuby = 10;
 
 function checkUserData() {
-
-
   console.log("------>>->>LOOK HERE", getUserData);
   if (getUserData === null) {
-
     // body.style = `height:${newForm};`
     console.log("You need to sign up!");
-    formTitle.innerHTML = "Sign Up!"
+    formTitle.innerHTML = "Sign Up!";
     newUserForm();
     colorSet = colorInput;
-
   } else {
-
     var scanData = getUserData.length - 1;
     var name = getUserData[scanData].name;
     var age = getUserData[scanData].age;
@@ -256,11 +280,14 @@ function checkUserData() {
     var hearts = getUserData[scanData].hearts;
     var rubies = getUserData[scanData].rubies;
 
-    console.log("Welcome back!!");
-    formTitle.innerHTML = `Hey, ${name}!`
+    console.log(`Welcome back ${name}`);
+    formTitle.innerHTML = `Welcome back ${name}`;
     colorSet = color;
+    nameInput.style = "display: none";
+    ageInput.style = "display: none";
+    colorInput.style = "display: none";
 
-    /// returnUser()
+    // returnUser()
     newUserForm();
 
     var userData = { name, age, color, hearts, rubies };
@@ -271,7 +298,6 @@ function checkUserData() {
 const currentUserData = checkUserData();
 
 function newUserForm() {
-
   formButton.addEventListener("click", () => {
     const newUser = {
       name: nameInput.value,
@@ -284,6 +310,9 @@ function newUserForm() {
       getUserData.push(newUser);
 
       var updatedUserData = JSON.stringify(getUserData);
+
+      console.log("return user");
+      return;
     } else {
       var firstUser = [];
       firstUser.push(newUser);
@@ -293,6 +322,52 @@ function newUserForm() {
 
     localStorage.setItem("userData", updatedUserData);
 
-    console.log(JSON.parse(localStorage.getItem("userData")));
+    // console.log(JSON.parse(localStorage.getItem("userData")));
   });
 }
+
+////////////////////////////BASE MENU ACTIVITY////////////////////////////////////
+
+const profileButton = document.querySelector(".menu-profile");
+const arcadeButton = document.querySelector(".menu-two");
+// const profileButton = document.querySelector('.menu-three')
+// const profileButton = document.querySelector('.menu-four')
+// const profileButton = document.querySelector('.menu-five')
+// const profileButton = document.querySelector('.menu-six')
+
+const statsMenu = document.querySelector(".stats-menu");
+const arcadeMenu = document.querySelector(".arcade-menu");
+var menuOpen;
+var menuOptions = [statsMenu, arcadeMenu];
+
+function toggleMenu(menuSelection, pointer) {
+  console.log(menuSelection, menuOpen);
+  for (let i = 0; i < menuOptions.length; i++) {
+    if (pointer.style.display !== "none") {
+      if (menuOpen !== menuSelection) {
+        menuOptions[i].style.display = "none";
+      }
+
+      if (menuOpen === menuSelection) {
+        menuOptions[i].style.display = "inline-block";
+      }
+    } else {
+      console.log('meowmeowmeowmeowmeowm')
+    }
+  }
+
+}
+
+profileButton.addEventListener("click", (e) => {
+  menuOpen = "statsMenu";
+  toggleMenu("statsMenu", statsMenu);
+  // toggleMenu("arcadeMenu", arcadeMenu);
+});
+
+arcadeButton.addEventListener("click", () => {
+  menuOpen = "arcadeMenu";
+  toggleMenu("arcadeMenu", arcadeMenu);
+  // toggleMenu("statsMenu", statsMenu);
+});
+
+////////////////////////////////////////////////////////////////////////////
