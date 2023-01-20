@@ -1,8 +1,10 @@
 import { runQuestion } from '/src/js/questions.js'
 import { slideShowRun } from '/src/js/slideShow.js'
+import { gallery } from '/src/js/gallery.js'
 
 runQuestion()
 slideShowRun()
+gallery()
 
 const clearButton = document.querySelector('.clear-button')
 
