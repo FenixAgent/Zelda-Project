@@ -27,7 +27,7 @@ export function runQuestion() {
   var navi_out = new Audio('src/sounds/Navi_Out.wav')
   var get_item = new Audio('src/sounds/Get_Item.wav')
 
-  console.log(`There are ${qanda.length} questions total`);
+  // console.log(`There are ${qanda.length} questions total`);
 
   runQuestion();
 
@@ -91,7 +91,7 @@ export function runQuestion() {
       answerResult.innerHTML = "YOU GOT IT!"
       get_item.play();
 
-      console.log(qanda.length, "---", currentQuestion + 1)
+      // console.log(qanda.length, "---", currentQuestion + 1)
       if (qanda.length > currentQuestion + 1) {
         currentQuestion++;
         runQuestion();

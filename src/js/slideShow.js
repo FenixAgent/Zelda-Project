@@ -80,14 +80,14 @@ export function slideShowRun() {
 
     ///KICK OFF AUTO-SLIDE BASED ON THE ABOVE IMAGELINKS[] & IMAGESLIDE() 
 
-    function autoSlide() {
-        for (let i = 1; i <= imageCount; i++) {
-            setTimeout(() => {
-                next.click();
-            }, 5500 * i);
-        }
-    }
-    autoSlide();
+    // function autoSlide() {
+    //     for (let i = 1; i <= imageCount; i++) {
+    //         setTimeout(() => {
+    //             next.click();
+    //         }, 5500 * i);
+    //     }
+    // }
+    // autoSlide();
 
 
     /// SET KEYBOARD & BUTTON CLICK METHODS TO NAV SLIDESHOW 

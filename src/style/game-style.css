@@ -1,184 +1,69 @@
-:root {
-    --color-background: #282829;
-}
-
-*,
-::before,
-::after {
-    margin: 0;
+*{
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
-}
-
-.home-button {
-    height: 55px;
-}
-
-body {
+  }
+  .wrap{ 
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  
+  }
+  
+  button{ 
+    z-index: 999;
+  }
+  
+  h1{
+    z-index: 999;
+    position: absolute;
+    font-size: 18px;
+  }
+  
+  body{
+    background: #282829;
     color: #fff;
-    background-color: #272727;
-    width: 100vw;
-}
-
-.all {
-    margin-top: 40px;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 10px;
-    height: 100px;
-    z-index: 0;
-}
-
-.menu-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    list-style: none;
-}
-
-.start,
-.swing,
-.down {
-    margin: 0 40px;
-    font-size: 23px;
-}
-
-.logo {
-    height: 50px;
-    margin-right: 60px;
-    /* visibility: hidden; */
-}
-
-hr {
-    border: 1px solid white;
-}
-
-.holdlayout {
-    height: 100px;
-    width: 140px;
-    scale: 700%;
-    overflow: hidden;
+  }
+  
+  .game{
     position: absolute;
-    top: 510px;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%, -50%);
-    /* outline: 2px solid red; */
-    opacity: 0;
-}
-
-.holdlink {
-    height: 25px;
-    width: 25px;
-    scale: 450%;
-    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    background: black;
+    
+  }
+  
+  .game-view{
     position: relative;
-    left: 50%;
-    right: 50%;
-    transform: translateX(-50%, -50%);
-    top: 450px;
-}
-
-.layout {
-    position: relative;
-    left: -180px;
-    top: -400px;
-}
-
-.link {
+    height: 500px;
+    width: 600px;
+    
+    border: 2px solid #282829;
+  }
+  
+  #canvas{
     position: absolute;
-}
-
-.asleep {
-    animation: none;
-    top: -220px;
-}
-
-.stand-down {
-    animation: none;
-    top: 0px;
-    left: -28px;
-}
-
-.swing-sword-down {
-    animation: run 0.5s steps(6) forwards;
-    top: -90px;
-    left: 0px;
-}
-
-.walk-down {
-    animation: run 1s steps(6) infinite;
-    top: -28px;
-}
-
-.walk-left {
-    animation: run 1s steps(6) infinite;
-    left: -240px;
-    top: -28px;
-}
-
-.walk-right {
-    animation: run 1s steps(6) infinite;
-    left: -240px;
-    top: -120px;
-}
-
-.walk-up {
-    animation: run 1s steps(6) infinite;
-    left: 0px;
-    top: -120px;
-}
-
-@keyframes run {
-    from {
-        transform: transition3d(0px, 0, 0);
-    }
-    to {
-        transform: translate3d(-180px, 0, 0);
-    }
-}
-
-@keyframes layout-run-right {
-    from {
-    }
-    to {
-        transform: translate3d(-20px, 0, 0);
-    }
-}
-
-@keyframes layout-run-left {
-    from {
-    }
-    to {
-        transform: translate3d(20px, 0, 0);
-    }
-}
-
-@keyframes layout-run-up {
-    from {
-    }
-    to {
-        transform: translate3d(0px, 20px, 0);
-    }
-}
-
-@keyframes layout-run-down {
-    from {
-    }
-    to {
-        transform: translate3d(0px, -20px, 0);
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
+    height: 500px;
+    width: 600px;
+    
+    border: 2px solid blue;
+    
+  }
+  
+  .ground{
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    
+    background: transparent;
+    
+  }
+  
+    

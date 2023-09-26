@@ -6,6 +6,7 @@ runQuestion()
 slideShowRun()
 gallery()
 
+
 const clearButton = document.querySelector('.clear-button')
 
 clearButton.addEventListener("click", () => {
@@ -65,12 +66,6 @@ function triangles() {
 
 
 canvas.addEventListener("click", () => {
-  ///PLAY ON CANVAS CLICK///
-
-  // pauseAllMusic(); -------------------------------------> mute ALL on canvas click
-
-  ///PLAY ON CANVAS CLICK///
-
   ctx.clearRect(0, 0, innerWidth + 1000, innerHeight + 1000);
 
   let meow = window.requestAnimationFrame(triangles);
@@ -81,7 +76,6 @@ function colorSelector() {
 
   colorSelector.addEventListener("input", (e) => {
     colorSet = e.target.value;
-    console.log(colorSet);
   });
 }
 
@@ -213,9 +207,9 @@ menuButton.addEventListener("click", () => {
     menu.style = `opacity: 1; display: flex; z-index: 6; background:${colorSet}`;
 
     menuStatus = false;
-    console.log(lineOne.classList);
+    // console.log(lineOne.classList);
   } else {
-    console.log("true");
+    // console.log("true");
     lineOne.classList = "line-one";
     lineTwo.classList = "line-two";
     lineThree.classList = "line-three";
@@ -228,7 +222,7 @@ const aboutButton = document.querySelector(".about");
 const mainSection = document.querySelector(".section");
 
 aboutButton.addEventListener("click", () => {
-  console.log("ABOUT CLICKED");
+  // console.log("ABOUT CLICKED");
   lineOne.classList = "line-one";
   lineTwo.classList = "line-two";
   lineThree.classList = "line-three";
@@ -241,7 +235,7 @@ aboutButton.addEventListener("click", () => {
 const newsButton = document.querySelector(".more");
 
 newsButton.addEventListener("click", () => {
-  console.log("NEWS - CLICKED");
+  // console.log("NEWS - CLICKED");
   menu.style = "opacity: 0;";
   lineOne.classList = "line-one";
   lineTwo.classList = "line-two";
@@ -258,7 +252,7 @@ const body = document.querySelector("body");
 const formTitle = document.querySelector(".form-title");
 
 const getUserData = JSON.parse(localStorage.getItem("userData"));
-console.log(getUserData, "----", getUserData);
+// console.log(getUserData, "----", getUserData);
 
 const nameInput = document.querySelector(".form-input-name");
 const ageInput = document.querySelector(".form-input-age");
@@ -267,7 +261,7 @@ const fullHearts = 3;
 const firstRuby = 10;
 
 function checkUserData() {
-  console.log("------>>->>LOOK HERE", getUserData);
+  // console.log("------>>->>LOOK HERE", getUserData);
   if (getUserData === null) {
     // body.style = `height:${newForm};`
     console.log("You need to sign up!");
@@ -282,7 +276,7 @@ function checkUserData() {
     var hearts = getUserData[scanData].hearts;
     var rubies = getUserData[scanData].rubies;
 
-    console.log(`Welcome back ${name}`);
+    // console.log(`Welcome back ${name}`);
     formTitle.innerHTML = `Welcome back ${name}`;
     colorSet = color;
     nameInput.style = "display: none";
@@ -305,6 +299,7 @@ function newUserForm() {
       name: nameInput.value,
       age: parseInt(ageInput.value),
       color: colorInput.value,
+      heart_containers: fullHearts,
       hearts: fullHearts,
       rubies: firstRuby
     };
@@ -332,44 +327,73 @@ function newUserForm() {
 
 const profileButton = document.querySelector(".menu-profile");
 const arcadeButton = document.querySelector(".menu-two");
-// const profileButton = document.querySelector('.menu-three')
+const dailyDetails = document.querySelector(".menu-three")
+const galleryButton = document.querySelector('.menu-four')
 // const profileButton = document.querySelector('.menu-four')
 // const profileButton = document.querySelector('.menu-five')
-// const profileButton = document.querySelector('.menu-six')
+const zeldaGameLink = document.querySelector('.menu-six')
 
 const statsMenu = document.querySelector(".stats-menu");
 const arcadeMenu = document.querySelector(".arcade-menu");
-var menuOpen;
-var menuOptions = [statsMenu, arcadeMenu];
+const dailyDetailsMenu = document.querySelector(".daily-details");
+const galleryMenu = document.querySelector('.gallery-page')
+var statsMenuOpen = false;
+var arcadeMenuOpen = false;
+var dailyDetailsOpen = false;
+var galleryOpen = false;
 
-function toggleMenu(menuSelection, pointer) {
-  console.log(menuSelection, menuOpen);
-  for (let i = 0; i < menuOptions.length; i++) {
-    if (pointer.style.display !== "none") {
-      if (menuOpen !== menuSelection) {
-        menuOptions[i].style.display = "none";
-      }
 
-      if (menuOpen === menuSelection) {
-        menuOptions[i].style.display = "inline-block";
-      }
-    } else {
-      console.log('meowmeowmeowmeowmeowm')
-    }
+profileButton.addEventListener('click', () => {
+  if (!statsMenuOpen) {
+    statsMenu.style.display = "flex"
+    statsMenuOpen = true;
+
+  } else {
+    statsMenu.style.display = "none"
+    statsMenuOpen = false;
+
   }
+})
 
-}
+arcadeButton.addEventListener('click', () => {
+  if (!arcadeMenuOpen) {
+    arcadeMenu.style.display = "flex"
+    arcadeMenuOpen = true;
 
-profileButton.addEventListener("click", (e) => {
-  menuOpen = "statsMenu";
-  toggleMenu("statsMenu", statsMenu);
-  // toggleMenu("arcadeMenu", arcadeMenu);
-});
+  } else {
+    arcadeMenu.style.display = "none"
+    arcadeMenuOpen = false;
 
-arcadeButton.addEventListener("click", () => {
-  menuOpen = "arcadeMenu";
-  toggleMenu("arcadeMenu", arcadeMenu);
-  // toggleMenu("statsMenu", statsMenu);
-});
+  }
+})
 
+dailyDetails.addEventListener('click', () => {
+  if (!dailyDetailsOpen) {
+    dailyDetailsMenu.style.display = "flex"
+    dailyDetailsOpen = true;
+
+  } else {
+    dailyDetailsMenu.style.display = "none"
+    dailyDetailsOpen = false;
+
+  }
+})
+
+galleryButton.addEventListener('click', () => {
+  if (!galleryOpen) {
+    galleryMenu.style.display = "flex"
+    galleryOpen = true;
+
+  } else {
+    galleryMenu.style.display = "none"
+    galleryOpen = false;
+
+  }
+})
+
+zeldaGameLink.addEventListener('click',()=>{
+  window.location.href = "/html/zelda-game.html"
+
+  console.log('zel game')
+})
 ////////////////////////////////////////////////////////////////////////////

@@ -1,5 +1,5 @@
-export function gallery(){
-var imageIndex = [
+export function gallery() {
+  var imageIndex = [
     {
       url: "https://wallpaper.dog/large/20484925.jpg",
       tags: "zelda"
@@ -51,7 +51,7 @@ var imageIndex = [
       tags: "zelda"
     }
   ];
-  
+
   var videoIndex = [
     {
       url: "https://www.youtube.com/embed/30DPu43_Uko",
@@ -78,45 +78,48 @@ var imageIndex = [
       tags: "zelda",
       start_time: 0
     }
-  
+
   ];
-  
+
   var tag = document.createElement('script');
-  
+
   tag.src = "https://www.youtube.com/iframe_api";
   var firstScriptTag = document.getElementsByTagName('script')[0];
   firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-  
+
   let player;
-  
+
   function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', { events: {
+    player = new YT.Player('player', {
+      events: {
         onReady: onPlayerReady
-      }});
+      }
+    });
   }
-  
+
   var isPlaying = false;
-  
-  
+
+
   function onPlayerReady() {
-    
-    $(btnplay).on('click', function(){
-    if(isPlaying === false){
-  
-      player.playVideo();
-       isPlaying = true;
-       console.log("VIDEO PLAYING")
-      
-    
-   
-    }else{
-      
-      player.stopVideo();
-           isPlaying = false;
-           console.log("VIDEO STOP")
-    }
-    })}
-  
+
+    $(btnplay).on('click', function () {
+      if (isPlaying === false) {
+
+        player.playVideo();
+        isPlaying = true;
+        console.log("VIDEO PLAYING")
+
+
+
+      } else {
+
+        player.stopVideo();
+        isPlaying = false;
+        console.log("VIDEO STOP")
+      }
+    })
+  }
+
   const viewImageGallery = document.querySelector(".view-image-gallery");
   const viewVideoGallery = document.querySelector(".view-video-gallery");
   const searchButton = document.querySelector(".search-button");
@@ -124,30 +127,30 @@ var imageIndex = [
   const searchMenuTag = document.querySelector(".search-header");
   const imageGalleryButton = document.querySelector(".image-gallery-button");
   imageGalleryButton.disabled = true;
-  
+
   const videoGalleryButton = document.querySelector(".video-gallery-button");
   videoGalleryButton.disabled = false;
-  
+
   const galleryTag = document.querySelectorAll(".gallery-tag");
-  
+
   var imageIndexNumber = 0;
   var videoIndexNumber = 0;
-  
+
   imageGalleryButton.addEventListener("click", () => {
     viewImageGallery.style = "display: flex";
     viewVideoGallery.style = "display: none";
     imageGalleryButton.disabled = true;
     videoGalleryButton.disabled = false;
   });
-  
+
   videoGalleryButton.addEventListener("click", () => {
     viewImageGallery.style = "display: none";
     viewVideoGallery.style = "display: flex";
     imageGalleryButton.disabled = false;
     videoGalleryButton.disabled = true;
   });
-  
-  console.log("random", videoIndex[videoIndexNumber + 1].url);
+
+  // console.log("random", videoIndex[videoIndexNumber + 1].url);
   function buildPhotoGallery() {
     class ImageGallery {
       constructor(imageUrl) {
@@ -160,9 +163,9 @@ var imageIndex = [
     }
     const addImage = new ImageGallery(imageIndex[imageIndexNumber].url);
   }
-  
+
   buildPhotoGallery();
-  
+
   function buildVideoGallery() {
     class VideoGallery {
       constructor(videoUrl) {
@@ -177,9 +180,9 @@ var imageIndex = [
     }
     const addImage = new VideoGallery(videoIndex[videoIndexNumber].url);
   }
-  
+
   buildVideoGallery();
-  
+
   function imageGalleryPush() {
     for (var i = 0; i <= imageIndex.length - 1; i++) {
       if (imageIndexNumber < imageIndex.length - 1) {
@@ -191,11 +194,11 @@ var imageIndex = [
     }
   }
   imageGalleryPush();
-  
+
   function videoGalleryPush() {
     for (var i = 0; i <= videoIndex.length - 1; i++) {
       if (videoIndexNumber < videoIndex.length - 1) {
-        console.log("CHECK", videoIndexNumber, videoIndex.length - 1);
+        // console.log("CHECK", videoIndexNumber, videoIndex.length - 1);
         videoIndexNumber += 1;
         buildVideoGallery();
       } else {
@@ -204,48 +207,60 @@ var imageIndex = [
     }
   }
   videoGalleryPush();
-  
-  
+
+
   function searchGallery() {
     //imageIndex[imageIndexNumber].tags
-  
+
     searchButton.addEventListener("click", () => {
       searchBar.style = "display: flex;";
       searchMenuTag.style = "display: flex;";
-  
+
       imageGalleryButton.style = "display: none;";
       videoGalleryButton.style = "display: none;";
       searchButton.style = "display: none;";
     });
-  
+
     window.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
-        console.log(e.key);
-  
+        // console.log(e.key);
+
         searchBar.style = "display: none;";
         searchMenuTag.style = "display: none;";
-  
+
         imageGalleryButton.style = "display: static;";
         videoGalleryButton.style = "display: static;";
         searchButton.style = "display: static;";
       }
     });
-  
+
     for (var i = 0; i < galleryTag.length; i++) {
       galleryTag[i].addEventListener("click", (e) => {
-        console.log(`Selected: ${e.target.innerHTML}`);
-  
+        // console.log(`Selected: ${e.target.innerHTML}`);
+
         // console.log(imageIndex[0].tags)
-  
+
         searchBar.style = "display: none;";
         searchMenuTag.style = "display: none;";
-  
+
         imageGalleryButton.style = "display: static;";
         videoGalleryButton.style = "display: static;";
         searchButton.style = "display: static;";
       });
     }
   }
-  
+
   searchGallery();
+
+
+  function fullScreenImage() {
+    const galleryImage = document.querySelector('.gallery-image')
+    const fullScreenActive = document.querySelector('.full-screen-active')
+    galleryImage.addEventListener('click', () => {
+      fullScreenActive.style = "display: "
+
+    })
+  }
+
+  fullScreenImage()
 }
